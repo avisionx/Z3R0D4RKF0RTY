@@ -54,7 +54,7 @@ a:hover {
   position: fixed;
   top: 2rem;
   width: 3rem;
-  z-index: 2; 
+  z-index: 12; 
 }
 
 .nav-toggle:hover {
@@ -107,20 +107,43 @@ a:hover {
   -ms-transition: left 0.5s ease;
   -o-transition: left 0.5s ease;
   transition: left 0.5s ease;
-  background: #4285F4;;
+  background: #4285F4;
   color: white;
   cursor: pointer;
   font-size: 2rem;
   height: 100vh;
   left: -30rem;
-  padding: 6rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
   position: fixed;
   top: 0;
   width: 30rem;
-  z-index: 1; 
+  z-index: 10; 
+}
+
+.nav-right {
+  -webkit-transition: right 0.5s ease;
+  -moz-transition: right 0.5s ease;
+  -ms-transition: right 0.5s ease;
+  -o-transition: right 0.5s ease;
+  transition: right 0.5s ease;
+  background: #4285F4;;
+  color: white;
+  cursor: pointer;
+  font-size: 2rem;
+  height: 100vh;
+  right: -40rem;
+  padding: 2rem 0rem;
+  position: fixed;
+  top: 0;
+  width: 40rem;
+  z-index: 10; 
+  align-items: center;
+  text-align: center;
 }
 
 .nav.expanded { left: 0; }
+
+.nav-right.expanded-right { right: 0; }
 
 .nav ul {
   position: absolute;
@@ -133,6 +156,17 @@ a:hover {
   padding: 0; 
 }
 
+.nav-right ul {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  list-style: none;
+  margin: 0;
+  padding: 0; 
+  width: 100%;
+}
 .gm-style-cc {
   display: none !important;
 }
@@ -160,6 +194,10 @@ a:hover {
   z-index: 3;
   height: 40px;
   margin: 0 auto;
+}
+
+.moveLeft {
+  left: 36.5% !important;
 }
 
 #pac-input1:focus, #pac-input2:focus {
@@ -193,6 +231,42 @@ a:hover {
   background-color: white;
   border-radius: 5px;
   padding: 3px 5px;
+}
+
+.routePanel {
+  background-color: white; 
+  color: black;
+  margin: 1.5rem;
+  border-radius: 1rem;
+  padding: 0;
+  padding: 0 10px;
+  display: inline-block;
+  width: 80%;
+  vertical-align: middle;
+  justify-content: center;
+  text-align: left;
+}
+
+.routeText {
+  vertical-align: middle;
+  justify-content: center;
+  text-align: center;
+}
+
+.routeText2 {
+  float: right;
+  margin-top: 6px;
+  padding-right: 10px;
+
+}
+
+.minify-icons {
+  width: 30px;
+  margin: 8px 0;
+  padding-left: 4px;
+  vertical-align: middle;
+  justify-content: center;
+  text-align: center;
 }
 
 /*.pac-controls {
