@@ -7,16 +7,340 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Z3R0D4RKF0RTY</title>
         <link rel="icon" href="./src/images/favicon.png">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"> -->
         <link rel="stylesheet" href="./src/css/app.css">
         <link rel="manifest" href="./manifest.json">
     </head>
 
     <body>
 
-        <h1>PWAs are great!</h1>
-        
+       <div class="nav-toggle">
+            <div class="nav-toggle-bar"></div>
+        </div>
+       
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box" style="position: absolute; top: 2rem; left: 50%; z-index: 5; transform: translateX(-50%); height: 3rem; padding: 0">
+
+        <div id="map_canvas"></div>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8EOCipsqcYeuJP76Ey7MumLdY0ojRmPs&callback=initialize&libraries=geometry,places" type="text/javascript"></script>
+        <script src="./src/js/jquery-3.3.1.min.js"></script>
+        <script src="./src/js/nav.js"></script>
         <script src="./src/js/app.js"></script>
+
+        <script type="text/javascript">
+            
+            var map;
+            var delhiCenter;
+            var userPos;
+
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(getPosition);
+            } else { 
+                userPos = null;
+            }
+
+            function getPosition(position) {
+                userPos = [position.coords.latitude, position.coords.longitude];
+            }
+
+            function initialize() {
+
+                if(userPos == null){
+                    delhiCenter = new google.maps.LatLng(28.7041, 77.1025);
+                    userPos = delhiCenter;    
+                }
+                else{
+                    userPos = new google.maps.LatLng(userPos[0], userPos[1]);
+                }
+                
+                map = new google.maps.Map(
+                
+                document.getElementById("map_canvas"), 
+                {
+                    center: userPos,
+                    zoom: 13,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    disableDefaultUI: true,
+                    styles: [
+                      {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                          {
+                            "visibility": "off"
+                          }
+                        ]
+                      },
+                      {
+                        "featureType": "poi.business",
+                        "stylers": [
+                          {
+                            "visibility": "off"
+                          }
+                        ]
+                      },
+                      {
+                        "featureType": "road",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                          {
+                            "visibility": "off"
+                          }
+                        ]
+                      },
+                      {
+                        "featureType": "transit",
+                        "stylers": [
+                          {
+                            "visibility": "off"
+                          }
+                        ]
+                      }
+                    ]
+                });
+
+                var input = document.getElementById('pac-input');
+                var searchBox = new google.maps.places.SearchBox(input);
+                
+                map.addListener('bounds_changed', function() {
+                    searchBox.setBounds(map.getBounds());
+                });
+
+                var markers = [];
+                
+                searchBox.addListener('places_changed', function() {
+                var places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                markers.forEach(function(marker) {
+                    marker.setMap(null);
+                });
+          
+                markers = [];
+
+                var bounds = new google.maps.LatLngBounds();
+          
+                places.forEach(function(place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if (place.geometry.viewport) {
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                
+                map.fitBounds(bounds);
+                
+            });
+
+
+                // var bounds = new google.maps.LatLngBounds();
+
+                // var jsonData = {
+                //     "overview_polyline" : {
+                //         "points" : "mtfmDcqsvMbAb@pA\\\\x@Qj@OT?J[FKHSZUt@IRaA|@E@FLJRDTZ|@l@lAbAbC`BzDJ\\Ad@Cn@B\\H\\z@fBLH`C?BjALxBLzBNz@f@`E`@|BxAa@b@ODABLBPDRE@}@XmCx@CNs@PES{C`AoG~A}H`CWp@WrA`AnGG|@LjGH|EEb@PhA`AfE`BbF~AfFhIf[tFlR~Iv\\dJl[XfAHDLPNn@LzAAR]r@@pAYtAwClMYdDOvD]zL_@zCKzDQdCMdE[xIo@fXwA`j@GjCEDc@~IMxD?rAQ~CT@{@fMIM@a@@e@HMBQJuAPBgHsDARR?fA@pCB~GLfABfA@lCYlCc@jC_@fAGfAChA@bAPdAVbAZ`CdA~FrCbGpC~@b@^P`@JdAPfAJfAFfA@nCI~GUlPk@~GWfAEfAAlCTdAPdAV`A^^RZVt@l@v@x@t@v@h@`AnAfCdAvBlAhCd@bAR`@T^r@v@r@x@jBjBnBfBpBbBrBbBx@n@t@t@p@x@l@~@vA|Bd@fAXjAv@tCv@tCXlATjAJnADpAAbDK`DApA?rAHlANnAVlA`@dAf@bAl@~@xA~BdDnFpDbGj@`A`@dA|@pC~@rCd@fAh@~@nAfClAfCd@dA\\hAVlANlAT`DR`DRlA^hAd@`An@~@t@t@x@n@tB~AzEnDlF|DfBlBl@|@h@bA~@pCx@rCz@tCbAlCbApCx@tCv@tC|@pCdC~G`ArCfAjC`ApCz@tCpBrGvBhH~BbHfGdQzBdH~@rCfAlCfAlC|@pCvBrG`CbHzBbHtBjHlBnHt@tC~@pCjC|GxGxPzGxPdAlCxA~BhEhFfEhF`BxBzAzBvD|FtDzFfJbN|AvBf@fA^hAVjALnADpAEpAMlAWlA_@fAg@bAuAbCuAbCoAfC[hASlAa@~C_@|C_A~HOlAEpAHbDH~CCtAIlASjA[jAcAjCc@fA]jASpAKnA?pAHnA`@|C\\~CLnAFpAF`D@bDFlCR`DT~C@rAEnAObDO`DGdDP~Cl@`I^|Cd@|CbAfH~@~HZ~CHnA?pAKbDCnABlAXbDX`Dh@`I`BbSdBnRjB`SPlATlA\\bAl@dAp@x@x@p@|@f@bA\\~@PlABlCO~Gg@hPsAxb@gDzPqApCSdA@dAJdAT`A\\~@f@x@n@v@p@NHp@hBeB_BiCwBFs@]JQ?SMG[Bg@PA?WsBDAm@C_@CCwBFImCoDTE?E{BG}GAS"
+                //     }
+                // };
+                
+                // var path = google.maps.geometry.encoding.decodePath(jsonData.overview_polyline.points);
+                
+                // for (var i = 0; i < path.length; i++) {
+                //     bounds.extend(path[i]);
+                // }
+        
+                // var polyline = new google.maps.Polyline({
+                //     path: path,
+                //     strokeColor: '#FF0000',
+                //     strokeOpacity: 0.8,
+                //     strokeWeight: 8,
+                //     fillColor: '#FF0000',
+                //     fillOpacity: 0.35,
+                //     map: map
+                //     // strokeColor: "#0000FF",
+                //     // strokeOpacity: 1.0,
+                //     // strokeWeight: 2
+                // });
+                // polyline.setMap(map);
+                // map.fitBounds(bounds);            
+            
+            }
+
+            function nightMode(event) {
+
+                map = new google.maps.Map(
+                
+                document.getElementById("map_canvas"), 
+                {
+                    center: userPos,
+                    zoom: 13,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    disableDefaultUI: true,
+                    styles: [
+                        {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+                        {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+                        {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+                        {
+                          featureType: 'administrative.locality',
+                          elementType: 'labels.text.fill',
+                          stylers: [{color: '#d59563'}]
+                        },
+                        {
+                          featureType: 'poi',
+                          elementType: 'labels.text.fill',
+                          stylers: [{visibility: 'off'}]
+                        },
+                        {
+                          featureType: 'poi.park',
+                          elementType: 'geometry',
+                          stylers: [{color: '#263c3f'}]
+                        },
+                        {
+                          featureType: 'poi.business',
+                          stylers: [{visibility: 'off'}]
+                        },
+                        {
+                          featureType: 'poi.park',
+                          elementType: 'labels.text.fill',
+                          stylers: [{color: '#6b9a76'}]
+                        },
+                        {
+                          featureType: 'road',
+                          elementType: 'geometry',
+                          stylers: [{color: '#38414e'}]
+                        },
+                        {
+                          featureType: 'road',
+                          elementType: 'geometry.stroke',
+                          stylers: [{color: '#212a37'}]
+                        },
+                        {
+                          featureType: 'road',
+                          elementType: 'labels.text.fill',
+                          stylers: [{color: '#9ca5b3'}]
+                        },
+                        {
+                          featureType: 'road.highway',
+                          elementType: 'geometry',
+                          stylers: [{color: '#746855'}]
+                        },
+                        {
+                          featureType: 'road.highway',
+                          elementType: 'geometry.stroke',
+                          stylers: [{color: '#1f2835'}]
+                        },
+                        {
+                          featureType: 'road.highway',
+                          elementType: 'labels.text.fill',
+                          stylers: [{color: '#f3d19c'}]
+                        },
+                        {
+                          featureType: 'transit',
+                          stylers: [{visibility: 'off'}]
+                        },
+                        {
+                          featureType: 'transit.station',
+                          elementType: 'labels.text.fill',
+                          stylers: [{color: '#d59563'}]
+                        },
+                        {
+                          featureType: 'water',
+                          elementType: 'geometry',
+                          stylers: [{color: '#17263c'}]
+                        },
+                        {
+                          featureType: 'water',
+                          elementType: 'labels.text.fill',
+                          stylers: [{color: '#515c6d'}]
+                        },
+                        {
+                          featureType: 'water',
+                          elementType: 'labels.text.stroke',
+                          stylers: [{color: '#17263c'}]
+                        }
+                    ]
+                });
+            }
+
+            function dayMode(event) {
+
+                map = new google.maps.Map(
+                
+                document.getElementById("map_canvas"), 
+                {
+                    center: userPos,
+                    zoom: 13,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    disableDefaultUI: true,
+                    styles: [
+                      {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                          {
+                            "visibility": "off"
+                          }
+                        ]
+                      },
+                      {
+                        "featureType": "poi.business",
+                        "stylers": [
+                          {
+                            "visibility": "off"
+                          }
+                        ]
+                      },
+                      {
+                        "featureType": "road",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                          {
+                            "visibility": "off"
+                          }
+                        ]
+                      },
+                      {
+                        "featureType": "transit",
+                        "stylers": [
+                          {
+                            "visibility": "off"
+                          }
+                        ]
+                      }
+                    ]
+                });
+            }
+        
+        </script>
 
     </body>
 
