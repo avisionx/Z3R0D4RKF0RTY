@@ -141,23 +141,61 @@ a:hover {
   display: none !important;
 }
 
-.pac-card {
-  margin: 10px 10px 0 0;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
+#pac-input1, #pac-input2 {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+  width: 50%;
+  position: absolute; 
+  top: 4rem; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.75rem;
+  color: black;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  z-index: 3;
+  height: 40px;
+  margin: 0 auto;
+}
+
+#pac-input1:focus, #pac-input2:focus {
   outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
+  border: 1px solid #4285F4;
+}
+
+#pac-input1:focus::placeholder{
+  color: transparent;
+}
+
+.pac-container:after {
+  background-image: none !important;
+  height: 0px;
+}
+
+.pac-container {
+  padding: 0;
+  background: transparent;
+}
+
+.pac-card {
+  margin: 1rem;
+  padding: 1rem;
+  outline: none;
+  background-color: red !important;
   font-family: Roboto;
 }
 
-#pac-container {
-  padding-bottom: 12px;
-  margin-right: 12px;
+.pac-item {
+  background-color: white;
+  border-radius: 5px;
+  padding: 3px 5px;
 }
 
-.pac-controls {
+/*.pac-controls {
   display: inline-block;
   padding: 5px 11px;
 }
@@ -168,21 +206,6 @@ a:hover {
   font-weight: 300;
 }
 
-#pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 400px;
-}
-
-#pac-input:focus {
-  border-color: #4d90fe;
-}
-
 #title {
   color: #fff;
   background-color: #4d90fe;
@@ -190,6 +213,7 @@ a:hover {
   font-weight: 500;
   padding: 6px 12px;
 }
+
 #target {
   width: 345px;
-}
+}*/
