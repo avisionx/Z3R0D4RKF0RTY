@@ -134,6 +134,18 @@
 
         <script type="text/javascript">
             
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(getPosition);
+            } else { 
+                userPos = null;
+            }
+
+            function getPosition(position) {
+                console.log(userPos);
+                userPos = [position.coords.latitude, position.coords.longitude];
+                console.log(userPos);
+            }
+
             var map;
             var delhiCenter;
             var userPos;
@@ -153,19 +165,13 @@
         
             };
 
-            if (navigator.geolocation) {
-                navigator.geolocation.watchPosition(getPosition);
-            } else { 
-                userPos = null;
-            }
-
-            function getPosition(position) {
-                userPos = [position.coords.latitude, position.coords.longitude];
-            }
-
             function initialize() {
-
+                console.log(userPos);
                 if(userPos == null){
+                    console.log(userPos);
+                    setTimeout(function(){
+                        console.log(userPos);
+                    }, 3000);
                     delhiCenter = new google.maps.LatLng(28.7041, 77.1025);
                     userPos = delhiCenter;    
                 }
