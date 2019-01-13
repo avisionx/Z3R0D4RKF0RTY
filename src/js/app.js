@@ -234,6 +234,18 @@ function populateData(data){
     }
     domELe = '<div class="routePanel row m-1 my-5" id="route' + (i+1) +'" onclick="openRoute(this);"><div class="col-6 p-0 pl-3 text-left"><img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber"><img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus"><img src="./src/images/modes/walking.png" alt="Walk" class="minify-icons" id="walk"><img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro"></div><div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹' + data[i].P + '</span></div><div class="routeText2 col-3 text-dark small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">' + timePlace + '</span></div><div class="col-12 pt-5" id="routeData" onclick="closeRoute(this);">' + s + '</div></div>';
     $("#rightPanel").append(domELe);
+    if(!data[i].M.includes("Car")){
+      $("#route" + (i+1)).find("#uber").hide();  
+    }
+    if(!data[i].M.includes("Walk")){
+      $("#route" + (i+1)).find("#walk").hide();  
+    }
+    if(!data[i].M.includes("Bus")){
+      $("#route" + (i+1)).find("#bus").hide();  
+    }
+    if(!data[i].M.includes("Metro")){
+      $("#route" + (i+1)).find("#metro").hide();  
+    }
   }
 }
 
