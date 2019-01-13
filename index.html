@@ -20,13 +20,30 @@
         </div>
        
         <nav class="nav">
-            <ul>
-                <li><a href="#" onclick="nightMode(event); event.preventDefault();">Home</a></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Home</a></li>
-            </ul>
+            <div class="container">
+                <div class="row mt-5 pt-5">
+                    <div class="col-12 pt-5" style="text-align: center;">
+                        <img src="./src/images/profile.jpeg" class="rounded-circle" style="width: 70%">
+                    </div>
+                    <div class="col-12 text-center mt-4 mb-5 pb-5"><span class="text-center" style="margin-top: -100px;">John Doe</span></div>
+                </div>
+                <div class="row">
+                    <div class="col text-center mt-5 pt-5">
+                        <span class="small text-center mt-5 text-dark">Logout</span>
+                    </div>
+                </div>
+                <div class="row mt-5 pt-5">
+                    <div class="col-9" onclick="toggleNightModeShift()">
+                        <p>Night Mode</p>
+                    </div>
+                    <div class="col-3">
+                        <label class="switch">
+                            <input type="checkbox" id="inputSlide" onclick="event.preventDefault();">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>  
+                </div>
+            </div>
         </nav>
 
         <div class="nav-toggle-right">
@@ -42,84 +59,18 @@
                         <h1 class="mt-4">Routes</h1>
                     </div>
                 </div>
-                <div class="routePanel row m-1 my-5" id="route1" onclick="openRoute(this);">
-                    <div class="col-6 p-0">
-                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
-                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
-                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
-                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
+
+                <div class="routePanel row m-1 my-5" id="" onclick="openRoute(this);">
+                    <div class="col-6 p-0 pl-3 text-left">
+                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber" style="display: none">
+                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus" style="display: none">
+                        <img src="./src/images/modes/walking.png" alt="Walk" class="minify-icons" id="walk" style="display: none">
+                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro" style="display: none">
                     </div>
-                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
+                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price"></span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time"></span></div>
                     <div class="col-12" id="routeData" onclick="closeRoute(this);">
-                        sdasfasfasfasfasf1
                     </div>
                 </div>
-
-                <div class="routePanel row m-1 my-5" id="route2" onclick="openRoute(this);">
-                    <div class="col-6 p-0">
-                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
-                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
-                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
-                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
-                    </div>
-                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
-                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
-                        sdasfasfasfasfasf2
-                    </div>
-                </div>
-
-                <div class="routePanel row m-1 my-5" id="route3" onclick="openRoute(this);">
-                    <div class="col-6 p-0">
-                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
-                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
-                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
-                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
-                    </div>
-                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
-                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
-                        sdasfasfasfasfasf3
-                    </div>
-                </div>
-
-                <div class="routePanel row m-1 my-5" id="route4" onclick="openRoute(this);">
-                    <div class="col-6 p-0">
-                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
-                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
-                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
-                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
-                    </div>
-                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
-                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
-                        sdasfasfasfasfasf4
-                    </div>
-                </div>
-
-                <div class="routePanel row m-1 my-5" id="route5" onclick="openRoute(this);">
-                    <div class="col-6 p-0">
-                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
-                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
-                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
-                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
-                    </div>
-                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
-                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
-                        sdasfasfasfasfasf5
-                    </div>
-                </div>
-
-                <div class="routePanel row m-1 my-5" id="route6" onclick="openRoute(this);">
-                    <div class="col-6 p-0">
-                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
-                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
-                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
-                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
-                    </div>
-                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
-                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
-                        sdasfasfasfasfasf6
-                    </div>
-                </div>
-
                 
             </div>
         </nav>
@@ -148,6 +99,10 @@
                 userPos = [position.coords.latitude, position.coords.longitude];
             }
 
+            var hardData = [{'M': ['Car'], 'P': 385.0, 'T': 2093, 'R': ['kffmDarcvM\\jBp@fCj@zBi@|AkEhNoDtLBBDF?HGPQDC?AAYt@}A`FuB_Ai@U_DuA?@A@ABI@GAEG?I?CaDwAq@xBYn@g@t@MVOM[WoB}AoAy@c@WiAc@gBg@}Bc@kGyAsGcBcBe@wGaBaGaBcEaA}Bm@aEgAuBYoHu@yCUmGi@{D[{BM}BQgG_@JkCZwFF_ELaAAyACcCKuC[aJa@uLEwBGsCCsBDyBPmFXsOFwCAqASiAQk@uC_FO[MKi@[a@Ws@]qEqAu@_@c@a@[m@So@Gs@CcABcESsAEiGIqE_@_Ck@wAeEeHeL}R{AeCm@gAg@k@e@c@iAs@_@Q}AcA[Sq@q@Y[Yi@i@}Ac@iFCsA?{@LuEXaILmZA}BMuIEmAWeBU{@Yk@a@q@c@i@i@g@m@_@kBw@qBq@kBeA{A{AkJmL_CyCgCgDeAqAk@{@i@gA[eAQiAE}APcC`@oBt@}CPsA?{AGu@QqAk@cDYuAKaACw@@aAJkAZyA`@gAf@w@bI_Kr@eA|AyBtAeC`AoAlAoB`AkBx@}Bd@wBL{AFyFD{FE{@SiBe@gC}@cDSq@k@mA_A_CWu@mDwImAkDGe@Cq@Ls@J]Xc@p@g@\\IVCN?r@JZNhAx@z@~@`@h@Xf@v@jBXb@`@Th@@h@O~AkBH]Nu@F_@AmA@cAAkAeBaNQyCCm@Bm@BWLULmB\\wBr@}Bz@cBx@mArDwEjDwD|D{EdCyDl@iAd@kAr@{B`@aBNu@Ly@RqBJkC@wCOkDSoBQgAOw@WcAa@yAq@eBkEcNyGySeC}Hy@eDUuASiBMuBCuBFmBPsB`@oCn@}BdAeCj@gAvAqBfCkCjBaB~FkEzByAbEsBtA{@vAkAtA_B|@oAZm@Vm@Tu@\\}ARwAF{@Bs@CsBGcAK_AKg@Sc@_@mA]a@QKYGW?YD[NWTOXG\\Ap@H`@Zf@h@V\\B\\Cf@ONAJGh@c@zCyB`@OfBkAjBwAfFmDrMqIlI}Fh@u@HWFY?QAaAk@kGYqC]sE]uEKq@k@wFQuAK[c@_AEImAqB}BpB'], 'I': ['All from Uber'], 'D': 20102}, {'M': ['Walk', 'Metro', 'Walk', 'Metro', 'Walk'], 'P': 35.0, 'T': 3756, 'R': ['sffmD_rcvM^jBn@`CBL^xABLBF[~@K\\aC~HEL_ApCGNK^Qj@Ut@ENoBrGC?A?A?A?A?A?A?A@A?A??@A?A??@A@A@A@ABIAKCIAWGCLGAaCi@i@KgBe@IZs@xCMb@KGA?A?A?A?A??@A?A?A@A??@A??@A?ELoAi@cAc@', 'whgmDwebvMHD`C_IpIcYzBcJhA}FnAgG`AgE`AiDdBuDnByDfBmE`BuEf@sBd@cDb@{GVwEFgA`@}Cn@uCj@aCXwB@_CMmBcAuEa@qEAqCP}Fl@gPN}Cn@}IPuFFcC\\}Ll@}QLwAd@oCp@wCX_BTuCHwAb@_I`AsMToEEqAWuB{CmLs@kCuCoKY}B]{Eo@mDaDcKmEyNUeCO{EQwBw@wCkAqCuCgH{B}E_AoAcFqEaE{Da@a@iCmDmAsBiB{Ca@eAmEyOmBiHk@sAm@iAcC_DcCaDcAyAk@oAk@gAiCkGiCuGsAiDsCeHkBaFu@aCiAeDYs@{AsDqAqDk@oBSgAUyBOyCCwD@aJAiFEeBKeAOy@k@_Ca@iAq@_Bg@u@}@w@cAy@cDkCcAeAqA}AaA{Ae@kAWeAOsAAiADeAV}A^gAl@iAf@o@f@g@x@g@dA]l@Kv@IxA@pEDfCBtC@dAHbANpBd@|AZ|@J|@B~@A`AGj@KnA]rBq@pCkAnBs@fAY~Ao@~@]b@KzAYbBSrAUr@Q|@_@pCqAnFgCxCwA`CkAfC{AbBiAbAg@RKfD_BbA]`AY|Ao@tBgAtB_AhB}@tCkBjD}BzB}A~AkAt@c@d@c@f@o@v@eA`@u@p@eBb@qA^yAJw@FiAAyAK{A]aBc@qAg@{@{@gAgDoCeJ{HeAgAuA_Be@i@wDmE}DwEaCaD_D{DuBgC}IyKyFkHyBmCeCoCiEiDcBqBoAgBMQaFwHeFeIgBcDsAyC{@yBqEwNuFyQ{BmHOc@g@iAWc@k@o@_@Yw@a@eAa@_AOwAEyAHeAVsAp@oBpAmBnAHP', 'kyimDgh_wMc@aB', 'ozimDik_wMKMIHKJMLKLOLKJMNKJMNKJONIJKJMJOPKJMNKJONIJMLMLMNKJMLKNMLGJMNKLGLMPIJMPMPINKPILKPKLKPININGHILMTMRILKPILGJKPIJKRMRILKPILMPGLIJKPGJMRILININOTILKNILKNKLKNILMPIJKLOPMNMNKLGHONIJONKLMLOPKJMNKJMNKJKJMLOPKJIJMLKJMNIJONOPKJKJKLMLKLEDLN', 'wdkmDgx}vMZ~@KJ`@n@p@x@NRV\\Z`@fA~A@L?BzBFIhB?Bw@ACtAK~BANNBBBBDBF~AlCFLZt@ZGrAm@NK'], 'I': ['Walk to R.K. Puram', 'Metro rail towards Botanical Garden and stop at Botanical Garden', 'Walk to Botanical Garden', 'Metro rail towards Dwarka Sector- 21 and stop at Noida Sec.-18', 'Walk to Plot No - M 03, Sector 18, Noida, Uttar Pradesh 201301, India'], 'D': 22280}, {'M': ['Walk', 'Metro', 'Car'], 'P': 111.0, 'T': 3619, 'R': ['sffmD_rcvM^jBn@`CBL^xABLBF[~@K\\aC~HEL_ApCGNK^Qj@Ut@ENoBrGC?A?A?A?A?A?A?A@A?A??@A?A??@A@A@A@ABIAKCIAWGCLGAaCi@i@KgBe@IZs@xCMb@KGA?A?A?A?A??@A?A?A@A??@A??@A?ELoAi@cAc@', 'whgmDwebvMHD`C_IpIcYzBcJhA}FnAgG`AgE`AiDdBuDnByDfBmE`BuEf@sBd@cDb@{GVwEFgA`@}Cn@uCj@aCXwB@_CMmBcAuEa@qEAqCP}Fl@gPN}Cn@}IPuFFcC\\}Ll@}QLwAd@oCp@wCX_BTuCHwAb@_I`AsMToEEqAWuB{CmLs@kCuCoKY}B]{Eo@mDaDcKmEyNUeCO{EQwBw@wCkAqCuCgH{B}E_AoAcFqEaE{Da@a@iCmDmAsBiB{Ca@eAmEyOmBiHk@sAm@iAcC_DcCaDcAyAk@oAk@gAiCkGiCuGsAiDsCeHkBaFu@aCiAeDYs@{AsDqAqDk@oBSgAUyBOyCCwD@aJAiFEeBKeAOy@k@_Ca@iAq@_Bg@u@}@w@cAy@cDkCcAeAqA}AaA{Ae@kAWeAOsAAiADeAV}A^gAl@iAf@o@f@g@x@g@dA]l@Kv@IxA@pEDfCBtC@dAHbANpBd@|AZ|@J|@B~@A`AGj@KnA]rBq@pCkAnBs@fAY~Ao@~@]b@KzAYbBSrAUr@Q|@_@pCqAnFgCxCwA`CkAfC{AbBiAbAg@RKfD_BbA]`AY|Ao@tBgAtB_AhB}@tCkBjD}BzB}A~AkAt@c@d@c@f@o@v@eA`@u@p@eBb@qA^yAJw@FiAAyAK{A]aBc@qAg@{@{@gAgDoCeJ{HeAgAuA_Be@i@wDmE}DwEaCaD_D{DuBgC}IyKyFkHyBmCeCoCiEiDcBqBoAgBMQaFwHeFeIgBcDsAyC{@yBqEwNuFyQ{BmHOc@g@iAWc@k@o@_@Yw@a@eAa@_AOwAEyAHeAVsAp@oBpAmBnAHP', '}ximDqg_wMcDbCQB[UGAIBoAjAwAeBgC~E_@bAaBlDwA|BiA|Ac@h@sBtC{AdCkCdEKVETAPf@r@lE|FrBfCzBnCBn@fCxDx@xAN^FT`@tB|@~Gd@hEN~@Dl@Rv@fAzMQRO@MAOUk@kGYqC]sE]uEKq@k@wFQuAK[c@_ACCc@X?Dl@zA\\dCZtCIJ[BNOFK?KGEI?]LKJqAH'], 'I': ['Walk to R.K. Puram', 'Metro rail towards Botanical Garden and stop at Botanical Garden', 'Travel rest by uber '], 'D': 23757}, {'M': ['Walk', 'Metro', 'Walk', 'Metro', 'Car'], 'P': 106.0, 'T': 3712, 'R': ['sffmD_rcvM^jBn@`CBL^xABLBF[~@K\\aC~HEL_ApCGNK^Qj@Ut@ENoBrGC?A?A?A?A?A?A?A@A?A??@A?A??@A@A@A@ABIAKCIAWGCLGAaCi@i@KgBe@IZs@xCMb@KGA?A?A?A?A??@A?A?A@A??@A??@A?ELoAi@cAc@', 'whgmDwebvMHD`C_IpIcYzBcJhA}FnAgG`AgE`AiDdBuDnByDfBmE`BuEf@sBd@cDb@{GVwEFgA`@}Cn@uCj@aCXwB@_CMmBcAuEa@qEAqCP}Fl@gPN}Cn@}IPuFFcC\\}Ll@}QLwAd@oCp@wCX_BTuCHwAb@_I`AsMToEEqAWuB{CmLs@kCuCoKY}B]{Eo@mDaDcKmEyNUeCO{EQwBw@wCkAqCuCgH{B}E_AoAcFqEaE{Da@a@iCmDmAsBiB{Ca@eAmEyOmBiHk@sAm@iAcC_DcCaDcAyAk@oAk@gAiCkGiCuGsAiDsCeHkBaFu@aCiAeDYs@{AsDqAqDk@oBSgAUyBOyCCwD@aJAiFEeBKeAOy@k@_Ca@iAq@_Bg@u@}@w@cAy@cDkCcAeAqA}AaA{Ae@kAWeAOsAAiADeAV}A^gAl@iAf@o@f@g@x@g@dA]l@Kv@IxA@pEDfCBtC@dAHbANpBd@|AZ|@J|@B~@A`AGj@KnA]rBq@pCkAnBs@fAY~Ao@~@]b@KzAYbBSrAUr@Q|@_@pCqAnFgCxCwA`CkAfC{AbBiAbAg@RKfD_BbA]`AY|Ao@tBgAtB_AhB}@tCkBjD}BzB}A~AkAt@c@d@c@f@o@v@eA`@u@p@eBb@qA^yAJw@FiAAyAK{A]aBc@qAg@{@{@gAgDoCeJ{HeAgAuA_Be@i@wDmE}DwEaCaD_D{DuBgC}IyKyFkHyBmCeCoCiEiDcBqBoAgBMQaFwHeFeIgBcDsAyC{@yBqEwNuFyQ{BmHOc@g@iAWc@k@o@_@Yw@a@eAa@_AOwAEyAHeAVsAp@oBpAmBnAHP', 'kyimDgh_wMc@aB', 'ozimDik_wMKMIHKJMLKLOLKJMNKJMNKJONIJKJMJOPKJMNKJONIJMLMLMNKJMLKNMLGJMNKLGLMPIJMPMPINKPILKPKLKPININGHILMTMRILKPILGJKPIJKRMRILKPILMPGLIJKPGJMRILININOTILKNILKNKLKNILMPIJKLOPMNMNKLGHONIJONKLMLOPKJMNKJMNKJKJMLOPKJIJMLKJMNIJONOPKJKJKLMLKLEDLN', 'wdkmDgx}vMoDtDmIbJsAxA?NBf@Dj@pEhFrHjIJDJAROxLsKFLMJZt@ZGrAm@ROLEXCp@e@DFHA|AkAl@~Ax@tGADCH_@DV[?KGEg@LKJqAH'], 'I': ['Walk to R.K. Puram', 'Metro rail towards Botanical Garden and stop at Botanical Garden', 'Walk to Botanical Garden', 'Metro rail towards Dwarka Sector- 21 and stop at Noida Sec.-18', 'Travel rest by uber '], 'D': 23390},{'M': ['Car', 'Metro', 'Walk'], 'P': 118.0, 'T': 3758, 'R': ['enjmDct|vMpAIJKf@MFD?JWZ^EBI@Ey@uGm@_Bb@[oAwBiAuBoB{Bu@aAo@u@mIaLaIgL{@eA_@m@Wa@qAiBo@g@kAcBgBwBgByCuAsBy@uAj@o@LPbAzA~GdK`AtBfEjGHND?HBHFdGbJv@Ij@MvA{BZg@dAsBxAkCj@{@vBaEfCyDj@mAt@sAfGuJbBkCdDqFTu@fC_E`C_EFAJBTZ@LAJS^eBnCmC`Eo@b@GHGH@NAPEJOZo@bAbBzB`AhA?D?Li@lAo@d@', 'whgmDwebvMHD`C_IpIcYzBcJhA}FnAgG`AgE`AiDdBuDnByDfBmE`BuEf@sBd@cDb@{GVwEFgA`@}Cn@uCj@aCXwB@_CMmBcAuEa@qEAqCP}Fl@gPN}Cn@}IPuFFcC\\}Ll@}QLwAd@oCp@wCX_BTuCHwAb@_I`AsMToEEqAWuB{CmLs@kCuCoKY}B]{Eo@mDaDcKmEyNUeCO{EQwBw@wCkAqCuCgH{B}E_AoAcFqEaE{Da@a@iCmDmAsBiB{Ca@eAmEyOmBiHk@sAm@iAcC_DcCaDcAyAk@oAk@gAiCkGiCuGsAiDsCeHkBaFu@aCiAeDYs@{AsDqAqDk@oBSgAUyBOyCCwD@aJAiFEeBKeAOy@k@_Ca@iAq@_Bg@u@}@w@cAy@cDkCcAeAqA}AaA{Ae@kAWeAOsAAiADeAV}A^gAl@iAf@o@f@g@x@g@dA]l@Kv@IxA@pEDfCBtC@dAHbANpBd@|AZ|@J|@B~@A`AGj@KnA]rBq@pCkAnBs@fAY~Ao@~@]b@KzAYbBSrAUr@Q|@_@pCqAnFgCxCwA`CkAfC{AbBiAbAg@RKfD_BbA]`AY|Ao@tBgAtB_AhB}@tCkBjD}BzB}A~AkAt@c@d@c@f@o@v@eA`@u@p@eBb@qA^yAJw@FiAAyAK{A]aBc@qAg@{@{@gAgDoCeJ{HeAgAuA_Be@i@wDmE}DwEaCaD_D{DuBgC}IyKyFkHyBmCeCoCiEiDcBqBoAgBMQaFwHeFeIgBcDsAyC{@yBqEwNuFyQ{BmHOc@g@iAWc@k@o@_@Yw@a@eAa@_AOwAEyAHeAVsAp@oBpAmBnAHP', 'sffmD_rcvM^jBn@`CBL^xABLBF[~@K\\aC~HEL_ApCGNK^Qj@Ut@ENoBrGC?A?A?A?A?A?A?A@A?A??@A?A??@A@A@A@ABIAKCIAWGCLGAaCi@i@KgBe@IZs@xCMb@KGA?A?A?A?A??@A?A?A@A??@A??@A?ELoAi@cAc@'], 'I': ['Start travel from Uber ', 'Metro to R.K. Puram from  Botanical Garden', 'Walk from R.K. Puram'], 'D': 25064}];
+
+
+            var rightOpen = false;
             var origPos;
             var map;
             var delhiCenter;
@@ -283,6 +238,8 @@
                     marker.setMap(null);
                     
                     map.fitBounds(bounds);
+
+                    $("#pac-input2").val("");
                 
                 });
 
@@ -321,7 +278,11 @@
                     
                     map.fitBounds(bounds);
                     rightMenuAndBar.doToggle();
-                
+                    rightOpen = true;
+                    map.setZoom(12);
+                    
+                    populateData(hardData);
+
                 });
 
                 $("#pac-input1").on("focus", function() {
@@ -349,7 +310,6 @@
                     document.querySelector("#pac-input2").classList.remove("moveLeft");
                 });
 
-                var rightOpen = false;
 
                 $("#arrow-routes").on("click", function() {
                     if(!rightOpen){

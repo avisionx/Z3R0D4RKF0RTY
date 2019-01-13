@@ -1,4 +1,6 @@
-function nightMode(event) {
+var nightModeOn = false;
+
+function nightMode() {
     map = new google.maps.Map(
     document.getElementById("map_canvas"), 
     {
@@ -92,7 +94,7 @@ function nightMode(event) {
     });
 }
 
-function dayMode(event) {
+function dayMode() {
 
     map = new google.maps.Map(
     
@@ -194,4 +196,23 @@ function closeRoute(element){
   setTimeout(function(){
     tester = true;
 }, 1000);
+}
+
+function toggleNightModeShift(){
+  $("#inputSlide").click();
+  if(!nightModeOn){
+    nightMode(); 
+    $("#inputSlide").prop('checked', true);
+  }
+  else{
+    dayMode();
+    $("#inputSlide").prop('checked', false);
+  }
+  nightModeOn = !nightModeOn;
+}
+
+function populateData(data){
+  for (var i = 0; i < data.length; i++) {
+    console.log(data[i].M);
+  }
 }
