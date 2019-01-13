@@ -170,7 +170,7 @@ function openRoute(element){
   tester = false;
 
   for (var j = 0; j < hardData[eleNumber].R.length; j++) {
-    mapFun(hardData[eleNumber].R[j]); 
+    mapFun(hardData[eleNumber].R[j], hardData[eleNumber].M[j]); 
   }
 
   map.setZoom(12);
@@ -239,7 +239,23 @@ function populateData(data){
 
 var curPolyline = [];
 
-function mapFun(points){
+function mapFun(points, mVal){
+
+  var color = '#D63230';
+
+  if(mVal == "Car"){
+    color = '#21897E';
+  }
+  else if(mVal == "Bus"){
+    color = '#53599A';
+  }
+  else if(mVal == "Metro"){
+    color = '#D63230';
+  }
+  else if(mVal == "Walk"){
+    color = '#21897E';
+  }
+
   var bounds = new google.maps.LatLngBounds();
   
   var path = google.maps.geometry.encoding.decodePath(points);
@@ -250,10 +266,10 @@ function mapFun(points){
   
   var polyline = new google.maps.Polyline({
     path: path,
-    strokeColor: '#FF0000',
+    strokeColor: color,
     strokeOpacity: 0.8,
     strokeWeight: 8,
-    fillColor: '#FF0000',
+    fillColor: color,
     fillOpacity: 0.35,
     map: map
     // strokeColor: "#0000FF",
