@@ -163,7 +163,7 @@ function openRoute(element){
   }
 
   $($(element).children()[3]).fadeIn("fast", function() {
-    $(element).height(530);
+    $(element).height(450);
   });
   tester = false;
 }

@@ -32,6 +32,9 @@
         <div class="nav-toggle-right">
             <div class="nav-toggle-bar-right"></div>
         </div>
+
+        <div class="arrow" id="arrow-routes"></div>
+
         <nav class="nav-right">
             <div class="container" id="rightPanel">
                 <div class="row">
@@ -123,7 +126,7 @@
 
         <input id="pac-input1" class="controls search-bar" type="text" placeholder="">
 
-        <input id="pac-input2" class="controls search-bar" style="top: 9rem" type="text" placeholder="Destination">
+        <input id="pac-input2" class="controls search-bar" style="" type="text" placeholder="Destination">
 
         <div id="map_canvas"></div>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9d8y-4zZB9_0ZOn6Pk3AjAWxlBd_J168&callback=initialize&libraries=geometry,places" type="text/javascript"></script>
@@ -344,6 +347,28 @@
                     rightMenuAndBar.nav.classList.remove('expanded-right');
                     document.querySelector("#pac-input1").classList.remove("moveLeft");
                     document.querySelector("#pac-input2").classList.remove("moveLeft");
+                });
+
+                var rightOpen = false;
+
+                $("#arrow-routes").on("click", function() {
+                    if(!rightOpen){
+                        document.querySelector('.nav-toggle').classList.remove('expanded');
+                        document.querySelector('nav').classList.remove('expanded');
+                        rightMenuAndBar.navToggle.classList.add('expanded-right');
+                        rightMenuAndBar.nav.classList.add('expanded-right');
+                        document.querySelector("#pac-input1").classList.remove("moveLeft");
+                        document.querySelector("#pac-input2").classList.remove("moveLeft");
+                    }
+                    else{
+                        document.querySelector('.nav-toggle').classList.remove('expanded');
+                        document.querySelector('nav').classList.remove('expanded');
+                        rightMenuAndBar.navToggle.classList.remove('expanded-right');
+                        rightMenuAndBar.nav.classList.remove('expanded-right');
+                        document.querySelector("#pac-input1").classList.remove("moveLeft");
+                        document.querySelector("#pac-input2").classList.remove("moveLeft");
+                    }
+                    rightOpen = !rightOpen;
                 });
 
                 // var bounds = new google.maps.LatLngBounds();

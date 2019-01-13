@@ -250,6 +250,52 @@ a:hover {
   padding: 0;
 }
 
+#pac-input2 {
+  top: 9rem;
+}
+
+@media (max-width: 575.98px) {
+
+  #pac-input1, #pac-input2 {
+  width: 75%;
+  position: absolute; 
+  top: 5.5rem;
+  } 
+
+  #pac-input2 {
+    top: 10rem;
+  }
+
+  .nav-right {
+    right: -100vw;
+    width: 100vw;
+    z-index: 15; 
+  }
+
+  .arrow {
+    position: absolute;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    right: 1.5rem;
+    top: 1.5rem;
+    width: 3rem;
+    z-index: 16; 
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background: black;
+    content: '';
+    height: 3rem;
+  }
+
+}
+
+}
+
 /*.pac-controls {
   display: inline-block;
   padding: 5px 11px;
