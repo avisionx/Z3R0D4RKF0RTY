@@ -169,8 +169,8 @@ function openRoute(element){
   });
   tester = false;
 
-  for (var j = 0; j < hardData[eleNumber].R.length; j++) {
-    mapFun(hardData[eleNumber].R[j], hardData[eleNumber].M[j]); 
+  for (var j = 0; j < hardData[eleNumber-1].R.length; j++) {
+    mapFun(hardData[eleNumber-1].R[j], hardData[eleNumber-1].M[j]); 
   }
 
   map.setZoom(12);
@@ -241,10 +241,10 @@ var curPolyline = [];
 
 function mapFun(points, mVal){
 
-  var color = '#D63230';
+  var color = '#DDD92A';
 
   if(mVal == "Car"){
-    color = '#21897E';
+    color = '#36558F';
   }
   else if(mVal == "Bus"){
     color = '#53599A';
