@@ -236,37 +236,17 @@ a:hover {
 .routePanel {
   background-color: white; 
   color: black;
-  margin: 1.5rem;
   border-radius: 1rem;
-  padding: 0;
-  padding: 0 10px;
-  display: inline-block;
-  width: 80%;
-  vertical-align: middle;
-  justify-content: center;
-  text-align: left;
 }
 
-.routeText {
-  vertical-align: middle;
-  justify-content: center;
-  text-align: center;
-}
-
-.routeText2 {
-  float: right;
-  margin-top: 6px;
-  padding-right: 10px;
-
+#routeData {
+  display: none;
 }
 
 .minify-icons {
   width: 30px;
-  margin: 8px 0;
-  padding-left: 4px;
-  vertical-align: middle;
-  justify-content: center;
-  text-align: center;
+  margin: 7px 0;
+  padding: 0;
 }
 
 /*.pac-controls {

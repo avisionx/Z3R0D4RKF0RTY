@@ -33,16 +33,92 @@
             <div class="nav-toggle-bar-right"></div>
         </div>
         <nav class="nav-right">
-            <ul class="container">
-                <h1>Routes</h1>
-                <li class="routePanel " id="route1">
-                    <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons">
-                    <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons">
-                    <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons">
-                    <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons">
-                    <span class="routeText">₹1000</span><span class="routeText2">32h 24m</span>
-                </li>
-            </ul>
+            <div class="container" id="rightPanel">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="mt-4">Routes</h1>
+                    </div>
+                </div>
+                <div class="routePanel row m-1 my-5" id="route1" onclick="openRoute(this);">
+                    <div class="col-6 p-0">
+                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
+                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
+                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
+                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
+                    </div>
+                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
+                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
+                        sdasfasfasfasfasf1
+                    </div>
+                </div>
+
+                <div class="routePanel row m-1 my-5" id="route2" onclick="openRoute(this);">
+                    <div class="col-6 p-0">
+                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
+                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
+                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
+                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
+                    </div>
+                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
+                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
+                        sdasfasfasfasfasf2
+                    </div>
+                </div>
+
+                <div class="routePanel row m-1 my-5" id="route3" onclick="openRoute(this);">
+                    <div class="col-6 p-0">
+                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
+                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
+                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
+                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
+                    </div>
+                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
+                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
+                        sdasfasfasfasfasf3
+                    </div>
+                </div>
+
+                <div class="routePanel row m-1 my-5" id="route4" onclick="openRoute(this);">
+                    <div class="col-6 p-0">
+                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
+                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
+                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
+                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
+                    </div>
+                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
+                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
+                        sdasfasfasfasfasf4
+                    </div>
+                </div>
+
+                <div class="routePanel row m-1 my-5" id="route5" onclick="openRoute(this);">
+                    <div class="col-6 p-0">
+                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
+                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
+                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
+                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
+                    </div>
+                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
+                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
+                        sdasfasfasfasfasf5
+                    </div>
+                </div>
+
+                <div class="routePanel row m-1 my-5" id="route6" onclick="openRoute(this);">
+                    <div class="col-6 p-0">
+                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber">
+                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus">
+                        <img src="./src/images/modes/walking.png" alt="Walking" class="minify-icons" id="walk">
+                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro">
+                    </div>
+                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹1000</span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">12h36m</span></div>
+                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
+                        sdasfasfasfasfasf6
+                    </div>
+                </div>
+
+                
+            </div>
         </nav>
 
         <input id="pac-input1" class="controls search-bar" type="text" placeholder="">
@@ -61,7 +137,8 @@
             var map;
             var delhiCenter;
             var userPos;
-
+            var childrenList = $("#rightPanel").children();
+            var tester = true;
             var rightMenuAndBar = {
                 
                 navToggle: document.querySelector('.nav-toggle-right'),
@@ -244,6 +321,8 @@
                 });
 
                 $("#pac-input1").on("focus", function() {
+                    document.querySelector('.nav-toggle').classList.remove('expanded');
+                    document.querySelector('nav').classList.remove('expanded');
                     rightMenuAndBar.navToggle.classList.remove('expanded-right');
                     rightMenuAndBar.nav.classList.remove('expanded-right');
                     document.querySelector("#pac-input1").classList.remove("moveLeft");
@@ -251,6 +330,8 @@
                 });
 
                 $("#pac-input2").on("focus", function() {
+                    document.querySelector('.nav-toggle').classList.remove('expanded');
+                    document.querySelector('nav').classList.remove('expanded');
                     rightMenuAndBar.navToggle.classList.remove('expanded-right');
                     rightMenuAndBar.nav.classList.remove('expanded-right');
                     document.querySelector("#pac-input1").classList.remove("moveLeft");
@@ -268,7 +349,7 @@
 
                 // var jsonData = {
                 //     "overview_polyline" : {
-                //         "points" : "mtfmDcqsvMbAb@pA\\\\x@Qj@OT?J[FKHSZUt@IRaA|@E@FLJRDTZ|@l@lAbAbC`BzDJ\\Ad@Cn@B\\H\\z@fBLH`C?BjALxBLzBNz@f@`E`@|BxAa@b@ODABLBPDRE@}@XmCx@CNs@PES{C`AoG~A}H`CWp@WrA`AnGG|@LjGH|EEb@PhA`AfE`BbF~AfFhIf[tFlR~Iv\\dJl[XfAHDLPNn@LzAAR]r@@pAYtAwClMYdDOvD]zL_@zCKzDQdCMdE[xIo@fXwA`j@GjCEDc@~IMxD?rAQ~CT@{@fMIM@a@@e@HMBQJuAPBgHsDARR?fA@pCB~GLfABfA@lCYlCc@jC_@fAGfAChA@bAPdAVbAZ`CdA~FrCbGpC~@b@^P`@JdAPfAJfAFfA@nCI~GUlPk@~GWfAEfAAlCTdAPdAV`A^^RZVt@l@v@x@t@v@h@`AnAfCdAvBlAhCd@bAR`@T^r@v@r@x@jBjBnBfBpBbBrBbBx@n@t@t@p@x@l@~@vA|Bd@fAXjAv@tCv@tCXlATjAJnADpAAbDK`DApA?rAHlANnAVlA`@dAf@bAl@~@xA~BdDnFpDbGj@`A`@dA|@pC~@rCd@fAh@~@nAfClAfCd@dA\\hAVlANlAT`DR`DRlA^hAd@`An@~@t@t@x@n@tB~AzEnDlF|DfBlBl@|@h@bA~@pCx@rCz@tCbAlCbApCx@tCv@tC|@pCdC~G`ArCfAjC`ApCz@tCpBrGvBhH~BbHfGdQzBdH~@rCfAlCfAlC|@pCvBrG`CbHzBbHtBjHlBnHt@tC~@pCjC|GxGxPzGxPdAlCxA~BhEhFfEhF`BxBzAzBvD|FtDzFfJbN|AvBf@fA^hAVjALnADpAEpAMlAWlA_@fAg@bAuAbCuAbCoAfC[hASlAa@~C_@|C_A~HOlAEpAHbDH~CCtAIlASjA[jAcAjCc@fA]jASpAKnA?pAHnA`@|C\\~CLnAFpAF`D@bDFlCR`DT~C@rAEnAObDO`DGdDP~Cl@`I^|Cd@|CbAfH~@~HZ~CHnA?pAKbDCnABlAXbDX`Dh@`I`BbSdBnRjB`SPlATlA\\bAl@dAp@x@x@p@|@f@bA\\~@PlABlCO~Gg@hPsAxb@gDzPqApCSdA@dAJdAT`A\\~@f@x@n@v@p@NHp@hBeB_BiCwBFs@]JQ?SMG[Bg@PA?WsBDAm@C_@CCwBFImCoDTE?E{BG}GAS"
+                //         "points" : "erwmDowxvMYaA[wAoAyFg@_CEa@AODa@Hu@TcB?YAIHIbBm@nCy@zFsB`IqCbA[rEwAk@iCu@}CESnDkAhC_ArCy@hCo@HBVNx@hDl@zB~FuBhBkAj@dCnEbRrBxIdAbEQHb@nBd@hBxAjGlGbXbKfc@h@|BpApEzAvEVl@jBvDx@pA`BfCdAxAv@dAdAdApBfBtB`BtBjBdClB~HbH~CtC`CtB`B`B|@fAp@`ApAnBl@~@v@xA|@pB|@`Cp@rBnE`MjCtHNh@|DbL`BjE~@vBfBbD~G`S~CbJfCzHtClJzA|ELXjAjA`Bj@h@Dv@@|EkAp@C~@SpJwB|Be@vOeDzD}@|IuBjCs@hAk@`As@`Aw@Zc@Zk@|IsPxAiClBwCvCkE~@yAP]ZgAVwA^kFXaBZy@Xk@l@}@r@k@t@a@j@Qf@Gd@D\LZRPTRf@Hb@@p@Il@w@nDEj@@d@D\Tn@Vd@Hb@lAvAvBdCV^f@t@v@tAtElInAdChDhG^|@~BhEvDvGlCpEpBxCjAzAbAxAp@jBd@bAt@hAdAhAjAt@lAd@RE^H`Bl@rAj@tAj@~CxAfA`AZ^^n@n@rA\`BJdAFfBTXZNXBhDSt@ClA?bAKn@MPI\[TYh@gATu@Ly@f@yHFqAIqJ?uFEeFJiALg@nAeDbBmEj@eA|@kAnCeC~EoEnDqCnB{Ap@q@jAmA|@u@x@o@`Ak@~@e@b@Ug@_BgCqGAMBOXMVIF@HTh@zAfEwCHOLAH@HFDH?LALH\PNF@nCGjG[FOLIN?LHFNAPCHpBClAE~@]XC^?n@OdCeAvB}@hAi@lFcCt@a@lA_@XM{@sB_@eAc@_Am@kAOc@Qo@OYJI"
                 //     }
                 // };
                 
@@ -293,149 +374,6 @@
                 // polyline.setMap(map);
                 // map.fitBounds(bounds);            
             
-            }
-
-            function nightMode(event) {
-                map = new google.maps.Map(
-                document.getElementById("map_canvas"), 
-                {
-                    center: {lat: userPos[0], lng: userPos[1]},
-                    zoom: 13,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    disableDefaultUI: true,
-                    styles: [
-                        {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-                        {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-                        {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-                        {
-                          featureType: 'administrative.locality',
-                          elementType: 'labels.text.fill',
-                          stylers: [{color: '#d59563'}]
-                        },
-                        {
-                          featureType: 'poi',
-                          elementType: 'labels.text.fill',
-                          stylers: [{visibility: 'off'}]
-                        },
-                        {
-                          featureType: 'poi.park',
-                          elementType: 'geometry',
-                          stylers: [{color: '#263c3f'}]
-                        },
-                        {
-                          featureType: 'poi.business',
-                          stylers: [{visibility: 'off'}]
-                        },
-                        {
-                          featureType: 'poi.park',
-                          elementType: 'labels.text.fill',
-                          stylers: [{color: '#6b9a76'}]
-                        },
-                        {
-                          featureType: 'road',
-                          elementType: 'geometry',
-                          stylers: [{color: '#38414e'}]
-                        },
-                        {
-                          featureType: 'road',
-                          elementType: 'geometry.stroke',
-                          stylers: [{color: '#212a37'}]
-                        },
-                        {
-                          featureType: 'road',
-                          elementType: 'labels.text.fill',
-                          stylers: [{color: '#9ca5b3'}]
-                        },
-                        {
-                          featureType: 'road.highway',
-                          elementType: 'geometry',
-                          stylers: [{color: '#746855'}]
-                        },
-                        {
-                          featureType: 'road.highway',
-                          elementType: 'geometry.stroke',
-                          stylers: [{color: '#1f2835'}]
-                        },
-                        {
-                          featureType: 'road.highway',
-                          elementType: 'labels.text.fill',
-                          stylers: [{color: '#f3d19c'}]
-                        },
-                        {
-                          featureType: 'transit',
-                          stylers: [{visibility: 'off'}]
-                        },
-                        {
-                          featureType: 'transit.station',
-                          elementType: 'labels.text.fill',
-                          stylers: [{color: '#d59563'}]
-                        },
-                        {
-                          featureType: 'water',
-                          elementType: 'geometry',
-                          stylers: [{color: '#17263c'}]
-                        },
-                        {
-                          featureType: 'water',
-                          elementType: 'labels.text.fill',
-                          stylers: [{color: '#515c6d'}]
-                        },
-                        {
-                          featureType: 'water',
-                          elementType: 'labels.text.stroke',
-                          stylers: [{color: '#17263c'}]
-                        }
-                    ]
-                });
-            }
-
-            function dayMode(event) {
-
-                map = new google.maps.Map(
-                
-                document.getElementById("map_canvas"), 
-                {
-                    center: {lat: userPos[0], lng: userPos[1]},
-                    zoom: 13,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    disableDefaultUI: true,
-                    styles: [
-                      {
-                        "featureType": "poi",
-                        "elementType": "labels.text",
-                        "stylers": [
-                          {
-                            "visibility": "off"
-                          }
-                        ]
-                      },
-                      {
-                        "featureType": "poi.business",
-                        "stylers": [
-                          {
-                            "visibility": "off"
-                          }
-                        ]
-                      },
-                      {
-                        "featureType": "road",
-                        "elementType": "labels.icon",
-                        "stylers": [
-                          {
-                            "visibility": "off"
-                          }
-                        ]
-                      },
-                      {
-                        "featureType": "transit",
-                        "stylers": [
-                          {
-                            "visibility": "off"
-                          }
-                        ]
-                      }
-                    ]
-                });
             }
         
         </script>
