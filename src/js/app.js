@@ -165,7 +165,7 @@ function openRoute(element){
   }
 
   $($(element).children()[3]).fadeIn("fast", function() {
-    $(element).height(450);
+    $(element).height(500);
   });
   tester = false;
 
@@ -233,7 +233,7 @@ function populateData(data){
       s += '<p>' + data[i].I[k] + '</p>'
     }
     if(data[i].M.includes("Walk")){
-     s += "<p>The pollution levels in the region you're travelling through is experiencing high levels of pollution. Please make sure to have a N95 mask on hand while walking on this trip.</p>";
+     s += "<p><i>The pollution levels in the region you're travelling through is experiencing high levels of pollution. Please make sure to have a N95 mask on hand while walking on this trip.</i></p>";
     }
     domELe = '<div class="routePanel row m-1 my-5" id="route' + (i+1) +'" onclick="openRoute(this);"><div class="col-6 p-0 pl-3 text-left"><img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber"><img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus"><img src="./src/images/modes/walking.png" alt="Walk" class="minify-icons" id="walk"><img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro"></div><div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹' + data[i].P + '</span></div><div class="routeText2 col-3 text-dark small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">' + timePlace + '</span></div><div class="col-12 pt-5" id="routeData" onclick="closeRoute(this);">' + s + '</div></div>';
     $("#rightPanel").append(domELe);
