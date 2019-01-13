@@ -141,11 +141,11 @@
             }
 
             function getPosition(position) {
-                console.log(userPos);
+                origPos = [position.coords.latitude, position.coords.longitude];
                 userPos = [position.coords.latitude, position.coords.longitude];
-                console.log(userPos);
             }
 
+            var origPos;
             var map;
             var delhiCenter;
             var userPos;
@@ -166,13 +166,8 @@
             };
 
             function initialize() {
-                console.log(userPos);
                 if(userPos == null){
-                    console.log(userPos);
-                    setTimeout(function(){
-                        console.log(userPos);
-                    }, 3000);
-                    delhiCenter = new google.maps.LatLng(28.7041, 77.1025);
+                    delhiCenter = new google.maps.LatLng(28.543376, 77.193018);
                     userPos = delhiCenter;    
                 }
                 else{
