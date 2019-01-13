@@ -54,21 +54,10 @@
 
         <nav class="nav-right">
             <div class="container" id="rightPanel">
+                
                 <div class="row">
                     <div class="col">
                         <h1 class="mt-4">Routes</h1>
-                    </div>
-                </div>
-
-                <div class="routePanel row m-1 my-5" id="" onclick="openRoute(this);">
-                    <div class="col-6 p-0 pl-3 text-left">
-                        <img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber" style="display: none">
-                        <img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus" style="display: none">
-                        <img src="./src/images/modes/walking.png" alt="Walk" class="minify-icons" id="walk" style="display: none">
-                        <img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro" style="display: none">
-                    </div>
-                    <div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price"></span></div><div class="routeText2 col-3 text-muted small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time"></span></div>
-                    <div class="col-12" id="routeData" onclick="closeRoute(this);">
                     </div>
                 </div>
                 
@@ -330,35 +319,7 @@
                     }
                     rightOpen = !rightOpen;
                 });
-
-                // var bounds = new google.maps.LatLngBounds();
-
-                // var jsonData = {
-                //     "overview_polyline" : {
-                //         "points" : "erwmDowxvMYaA[wAoAyFg@_CEa@AODa@Hu@TcB?YAIHIbBm@nCy@zFsB`IqCbA[rEwAk@iCu@}CESnDkAhC_ArCy@hCo@HBVNx@hDl@zB~FuBhBkAj@dCnEbRrBxIdAbEQHb@nBd@hBxAjGlGbXbKfc@h@|BpApEzAvEVl@jBvDx@pA`BfCdAxAv@dAdAdApBfBtB`BtBjBdClB~HbH~CtC`CtB`B`B|@fAp@`ApAnBl@~@v@xA|@pB|@`Cp@rBnE`MjCtHNh@|DbL`BjE~@vBfBbD~G`S~CbJfCzHtClJzA|ELXjAjA`Bj@h@Dv@@|EkAp@C~@SpJwB|Be@vOeDzD}@|IuBjCs@hAk@`As@`Aw@Zc@Zk@|IsPxAiClBwCvCkE~@yAP]ZgAVwA^kFXaBZy@Xk@l@}@r@k@t@a@j@Qf@Gd@D\LZRPTRf@Hb@@p@Il@w@nDEj@@d@D\Tn@Vd@Hb@lAvAvBdCV^f@t@v@tAtElInAdChDhG^|@~BhEvDvGlCpEpBxCjAzAbAxAp@jBd@bAt@hAdAhAjAt@lAd@RE^H`Bl@rAj@tAj@~CxAfA`AZ^^n@n@rA\`BJdAFfBTXZNXBhDSt@ClA?bAKn@MPI\[TYh@gATu@Ly@f@yHFqAIqJ?uFEeFJiALg@nAeDbBmEj@eA|@kAnCeC~EoEnDqCnB{Ap@q@jAmA|@u@x@o@`Ak@~@e@b@Ug@_BgCqGAMBOXMVIF@HTh@zAfEwCHOLAH@HFDH?LALH\PNF@nCGjG[FOLIN?LHFNAPCHpBClAE~@]XC^?n@OdCeAvB}@hAi@lFcCt@a@lA_@XM{@sB_@eAc@_Am@kAOc@Qo@OYJI"
-                //     }
-                // };
-                
-                // var path = google.maps.geometry.encoding.decodePath(jsonData.overview_polyline.points);
-                
-                // for (var i = 0; i < path.length; i++) {
-                //     bounds.extend(path[i]);
-                // }
-        
-                // var polyline = new google.maps.Polyline({
-                //     path: path,
-                //     strokeColor: '#FF0000',
-                //     strokeOpacity: 0.8,
-                //     strokeWeight: 8,
-                //     fillColor: '#FF0000',
-                //     fillOpacity: 0.35,
-                //     map: map
-                //     // strokeColor: "#0000FF",
-                //     // strokeOpacity: 1.0,
-                //     // strokeWeight: 2
-                // });
-                // polyline.setMap(map);
-                // map.fitBounds(bounds);            
+          
             
             }
         
