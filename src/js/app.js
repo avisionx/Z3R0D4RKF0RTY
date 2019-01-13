@@ -168,6 +168,13 @@ function openRoute(element){
     $(element).height(450);
   });
   tester = false;
+
+  for (var j = 0; j < hardData[eleNumber].R.length; j++) {
+    mapFun(hardData[eleNumber].R[j]); 
+  }
+
+  map.setZoom(12);
+
 }
 
 function closeRoute(element){
@@ -196,6 +203,11 @@ function closeRoute(element){
   setTimeout(function(){
     tester = true;
 }, 1000);
+
+  for (var j = 0; j < curPolyline.length; j++) {
+    curPolyline[j].setMap(null);
+  }
+
 }
 
 function toggleNightModeShift(){
@@ -216,14 +228,16 @@ function populateData(data){
     h = parseInt((data[i].T/60)/60);
     m = parseInt((data[i].T/60)%60);
     timePlace = h+"h"+m+"m";
-    domELe = '<div class="routePanel row m-1 my-5" id="route' + (i+1) +'" onclick="openRoute(this);"><div class="col-6 p-0 pl-3 text-left"><img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber"><img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus"><img src="./src/images/modes/walking.png" alt="Walk" class="minify-icons" id="walk"><img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro"></div><div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹' + data[i].P + '</span></div><div class="routeText2 col-3 text-dark small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">' + timePlace + '</span></div><div class="col-12" id="routeData" onclick="closeRoute(this);"></div></div>';
-    $("#rightPanel").append(domELe);
-
-    for (var i = 0; i < data[i].R.length; i++) {
-      mapFun(data[i].R[i]); 
+    var s = "";
+    for(var k = 0; k < data[i].I.length; k++){
+      s += '<p>' + data[i].I[k] + '</p>'
     }
+    domELe = '<div class="routePanel row m-1 my-5" id="route' + (i+1) +'" onclick="openRoute(this);"><div class="col-6 p-0 pl-3 text-left"><img src="./src/images/modes/uber.png" alt="Uber" class="minify-icons" id="uber"><img src="./src/images/modes/bus.png" alt="Bus" class="minify-icons" id="bus"><img src="./src/images/modes/walking.png" alt="Walk" class="minify-icons" id="walk"><img src="./src/images/modes/metro.png" alt="Metro" class="minify-icons" id="metro"></div><div class="routeText col-3 p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="price">₹' + data[i].P + '</span></div><div class="routeText2 col-3 text-dark small p-0"><span style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" id="time">' + timePlace + '</span></div><div class="col-12 pt-5" id="routeData" onclick="closeRoute(this);">' + s + '</div></div>';
+    $("#rightPanel").append(domELe);
   }
 }
+
+var curPolyline = [];
 
 function mapFun(points){
   var bounds = new google.maps.LatLngBounds();
@@ -246,6 +260,7 @@ function mapFun(points){
     // strokeOpacity: 1.0,
     // strokeWeight: 2
   });
+  curPolyline.push(polyline);
   polyline.setMap(map);
   map.fitBounds(bounds);  
 }
